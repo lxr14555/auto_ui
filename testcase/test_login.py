@@ -21,28 +21,28 @@ class TestLogin:
         # self. driver.maximize_window()
         # self. driver.implicitly_wait(10)
         # sleep(3)
-
-        self.driver.get("http://127.0.0.1:8000/")
-        self.driver.find_element(By.XPATH, "//a[contains(text(),'登录')]").click()
+        driver = login
+        driver.get("http://127.0.0.1:8000/")
+        driver.find_element(By.XPATH, "//a[contains(text(),'登录')]").click()
         sleep(1)
-        self.driver.find_element(By.XPATH, "//input[@placeholder='请输入用户名']").send_keys(username)
+        driver.find_element(By.XPATH, "//input[@placeholder='请输入用户名']").send_keys(username)
         # self.driver.find_element(By.XPATH, "//input[@placeholder='请输入用户名']").send_keys(username)
         sleep(1)
         # self.driver.find_element(By.XPATH, "//input[@placeholder='请输入密码']").send_keys(password)
-        self.driver.find_element(By.XPATH, "//input[@placeholder='请输入密码']").send_keys(password)
+        driver.find_element(By.XPATH, "//input[@placeholder='请输入密码']").send_keys(password)
         sleep(1)
-        self.driver.find_element(By.XPATH, "//input[@value='登录']").click()
+        driver.find_element(By.XPATH, "//input[@value='登录']").click()
         sleep(1)
         if '欢迎您' in result:
-            text = self.driver.find_element(By.XPATH, "//div[@class='login_btn fl']").text
+            text = driver.find_element(By.XPATH, "//div[@class='login_btn fl']").text
             # assert text == result
             assert text == result
-            self.driver.find_element(By.XPATH, "//a[contains(text(),'退出')]").click()
+            driver.find_element(By.XPATH, "//a[contains(text(),'退出')]").click()
         elif '用户名错误' in result:
-            text = self.driver.find_element(By.XPATH, "//div[@class='user_error']").text
+            text = driver.find_element(By.XPATH, "//div[@class='user_error']").text
             assert text == result
         elif '密码错误' in result:
-            text = self.driver.find_element(By.XPATH, "//div[@class='pwd_error']").text
+            text = driver.find_element(By.XPATH, "//div[@class='pwd_error']").text
             # assert text == result
             assert text == result
 
