@@ -2,8 +2,11 @@
 import logging
 import os
 import time
-from config.conf import BASE_DIR
+
 import colorlog
+
+from config.conf import BASE_DIR
+
 
 log_colors_config = {
     'DEBUG': 'white',  # cyan white
